@@ -6,9 +6,9 @@ const Path = require('../path.js');
 
 const providers = require('../providers/index.js');
 
-const Shell = require('../shell/shell.js');
-const Intercom = require('../../lib/intercom.js');
-const FSWatcher = require('../fs-watcher.js');
+// const Shell = require('../shell/shell.js');
+// const Intercom = require('../../lib/intercom.js');
+// const FSWatcher = require('../fs-watcher.js');
 const Errors = require('../errors.js');
 const {
   nop,
@@ -163,7 +163,7 @@ function FileSystem(options, callback) {
   fs.X_OK = fsConstants.X_OK;
 
   // Expose Shell constructor
-  this.Shell = Shell.bind(undefined, this);
+  // this.Shell = Shell.bind(undefined, this);
 
   // Safely expose the operation queue
   let queue = [];
@@ -189,21 +189,23 @@ function FileSystem(options, callback) {
 
   // We support the optional `options` arg from node, but ignore it
   this.watch = function (filename, options, listener) {
-    if (Path.isNull(filename)) {
-      throw new Error('Path must be a string without null bytes.');
-    }
-    if (typeof options === 'function') {
-      listener = options;
-      options = {};
-    }
-    options = options || {};
-    listener = listener || nop;
+    // if (Path.isNull(filename)) {
+    //   throw new Error('Path must be a string without null bytes.');
+    // }
+    // if (typeof options === 'function') {
+    //   listener = options;
+    //   options = {};
+    // }
+    // options = options || {};
+    // listener = listener || nop;
 
-    const watcher = new FSWatcher();
-    watcher.start(filename, false, options.recursive);
-    watcher.on('change', listener);
+    // const watcher = new FSWatcher();
+    // watcher.start(filename, false, options.recursive);
+    // watcher.on('change', listener);
 
-    return watcher;
+    // return watcher;
+
+    throw new Error('Not implemented');
   };
 
   // Deal with various approaches to node ID creation
@@ -242,10 +244,10 @@ function FileSystem(options, callback) {
     if (!changes.length) {
       return;
     }
-    const intercom = Intercom.getInstance();
-    changes.forEach(function (change) {
-      intercom.emit(change.event, change.path);
-    });
+    // const intercom = Intercom.getInstance();
+    // changes.forEach(function (change) {
+    //   intercom.emit(change.event, change.path);
+    // });
   }
 
   // Open file system storage provider
