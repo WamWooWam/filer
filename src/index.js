@@ -1,6 +1,8 @@
 let fs = null;
 let Filer = null;
 
+globalThis.global = globalThis;
+
 module.exports = Filer = {
   FileSystem: require('./filesystem/interface.js'),
   Buffer: Buffer,
@@ -26,7 +28,7 @@ module.exports = Filer = {
 Object.defineProperty(Filer, 'fs', {
   enumerable: true,
   get() {
-    if(!fs) {
+    if (!fs) {
       fs = new Filer.FileSystem();
     }
     return fs;

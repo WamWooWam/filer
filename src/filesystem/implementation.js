@@ -38,6 +38,7 @@ var SuperNode = require('../super-node.js');
 var Node = require('../node.js');
 var Dirent = require('../dirent.js');
 var Stats = require('../stats.js');
+var Buffer = require('buffer').Buffer;
 
 /**
  * Update node times. Only passed times are modified (undefined times are ignored)

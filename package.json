@@ -45,12 +45,12 @@
     "url": "https://github.com/filerjs/filer.git"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "es6-promisify": "^7.0.0",
     "minimatch": "^3.0.4",
     "schema-utils": "^3.1.1"
   },
   "devDependencies": {
-    "regenerator-runtime": "^0.13.9",
     "chai": "^4.3.4",
     "chai-datetime": "^1.8.0",
     "eslint": "^7.32.0",
@@ -67,13 +67,14 @@
     "nyc": "^15.1.0",
     "parcel-bundler": "^1.12.5",
     "pretty-bytes": "^5.6.0",
+    "regenerator-runtime": "^0.13.9",
     "release-it": "^14.11.6",
     "run.env": "^1.1.0",
     "unused-filename": "^3.0.1",
     "walk": "^2.3.15"
   },
   "main": "./src/index.js",
-  "browser": "./dist/filer.min.js",
+  "browser": "./src/index.js",
   "files": [
     "src",
     "lib",

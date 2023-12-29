@@ -2,7 +2,7 @@
  * Patch process to add process.cwd(), always giving the root dir.
  * NOTE: this line needs to happen *before* we require in `path`.
  */
-process.cwd = () => '/';
+// process.cwd = () => '/';
 
 /**
  * https://github.com/browserify/path-browserify via Parcel.
